@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matrix — CCIAF · Layer I · Identity</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -58,11 +58,11 @@
 
     <div class="field-row cols-3">
       <div class="field-group">
-        <label>Day</label>
+        <label for="sel-day">Day</label>
         <select id="sel-day"><option value="">— Day —</option></select>
       </div>
       <div class="field-group">
-        <label>Month</label>
+        <label for="sel-month">Month</label>
         <select id="sel-month">
           <option value="">— Month —</option>
           <option value="1">January</option><option value="2">February</option>
@@ -74,7 +74,7 @@
         </select>
       </div>
       <div class="field-group">
-        <label>Year</label>
+        <label for="sel-year">Year</label>
         <select id="sel-year"><option value="">— Year —</option></select>
       </div>
     </div>
@@ -83,11 +83,11 @@
 
     <div class="field-row cols-2">
       <div class="field-group">
-        <label>Time of Birth <span style="font-size:.65rem;color:var(--text-3)">(optional)</span></label>
+        <label for="bazi-time">Time of Birth <span style="font-size:.65rem;color:var(--text-3)">(optional)</span></label>
         <input type="time" id="bazi-time" placeholder="HH:MM">
       </div>
       <div class="field-group">
-        <label>Gender</label>
+        <label for="bazi-gender">Gender</label>
         <select id="bazi-gender">
           <option value="male">Male</option>
           <option value="female">Female</option>
