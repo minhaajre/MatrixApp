@@ -240,7 +240,8 @@ function buildNumerology(d,m,y){
   const loShu=buildLoShu(d,m,y);
 
   return`
-<div class="report-pill">☽ Numerology Reading</div>
+<p class="report-eyebrow">Numerology Reading</p>
+<div class="report-rule"></div>
 <div class="report-title">Your Numerological Configuration</div>
 <div class="report-dob">${MNTHS[m-1]} ${d}, ${y}</div>
 
@@ -258,11 +259,11 @@ function buildNumerology(d,m,y){
   <div class="two-col">
     <div>
       <p class="sub-heading">Natural Strengths</p>
-      <div class="tag-row">${lpD.strengths.map(s=>`<span class="tag green">${s}</span>`).join('')}</div>
+      <div class="tag-row">${lpD.strengths.map(s=>`<span class="tag">${s}</span>`).join('')}</div>
     </div>
     <div>
       <p class="sub-heading">Core Challenges</p>
-      <div class="tag-row">${lpD.challenges.map(c=>`<span class="tag red">${c}</span>`).join('')}</div>
+      <div class="tag-row">${lpD.challenges.map(c=>`<span class="tag">${c}</span>`).join('')}</div>
     </div>
   </div>
   <div class="callout" style="margin-top:14px">
@@ -270,7 +271,7 @@ function buildNumerology(d,m,y){
     <p><strong>${lpD.purpose}</strong></p>
   </div>
   <p class="sub-heading">Famous Life Path ${lp}s</p>
-  <div class="tag-row">${lpD.famous.map(f=>`<span class="tag amber">${f}</span>`).join('')}</div>
+  <div class="tag-row">${lpD.famous.map(f=>`<span class="tag">${f}</span>`).join('')}</div>
   <div class="callout neutral" style="margin-top:14px">
     <div class="callout-label">Calculation</div>
     <p>Day ${d}→${dd} + Month ${m}→${mm} + Year ${y}→${yy} = ${dd+mm+yy} → <strong>Life Path ${lp}</strong></p>
@@ -287,7 +288,7 @@ function buildNumerology(d,m,y){
       <div class="block-arch">Your innate talent signature</div>
     </div>
   </div>
-  <div class="callout green">
+  <div class="callout">
     <div class="callout-label">Natural Talent</div>
     <p>${getBDTalent(d)}</p>
   </div>
@@ -306,7 +307,7 @@ function buildNumerology(d,m,y){
     </div>
   </div>
   <p class="prose">${mD.theme}</p>
-  <div class="callout green">
+  <div class="callout">
     <div class="callout-label">How ${mD.name} flavours your Life Path ${lp}</div>
     <p>${mD.flavor}</p>
   </div>
@@ -328,7 +329,7 @@ function buildNumerology(d,m,y){
     </div>
   </div>
   <p class="prose">${yD.theme}</p>
-  <div class="callout green">
+  <div class="callout">
     <div class="callout-label">How ${y} shapes your Life Path expression</div>
     <p>${yD.shape}</p>
   </div>
@@ -393,7 +394,7 @@ function buildLoShuHTML(g){
           </div>`;
         }).join('')}
       </div>
-      <p style="font-size:.72rem;color:var(--text-3);margin-top:8px;font-family:'DM Mono',monospace">● present &nbsp; · absent &nbsp; strong = ●●●</p>
+      <p style="font-size:.75rem;color:var(--text-3);margin-top:8px;font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:.06em">● present &nbsp; · absent &nbsp; strong = ●●●</p>
     </div>
     <div style="flex:1">
       <p class="sub-heading">Planes of Expression</p>
@@ -408,7 +409,7 @@ function buildLoShuHTML(g){
     <div class="arrows-grid">
       ${[...presentArrows,...absentArrows].map(n=>{
         const a=ARROWS[n];const pr=presentArrows.includes(n);
-        return`<div class="arrow-card ${pr?'present':''}">
+        return`<div class="arrow-card">
           <div class="arrow-name">${pr?'✓ ':''} ${a.label}</div>
           <div class="arrow-nums">${a.nums.join(' – ')}</div>
           <div class="arrow-desc">${pr?a.desc_p:a.desc_a}</div>
@@ -422,7 +423,7 @@ function buildLoShuHTML(g){
       const c=LOSHU_MEANINGS[pos];if(!c)return'';
       const st=cnt===0?'absent':cnt===1?'once':cnt===2?'twice':'triple';
       const label=cnt===0?'Absent — Key Lesson':`Appears ${cnt}× — ${cnt===1?'Active':cnt===2?'Amplified':'Dominant'}`;
-      const cls=cnt===0?'neutral':cnt>=3?'':'green';
+      const cls=cnt===0?'neutral':'';
       return`<div class="callout ${cls}" style="margin-bottom:8px">
         <div class="callout-label">Position ${pos} · ${label}</div>
         <p>${c[st]}</p>
@@ -451,10 +452,10 @@ function buildPlanes(g){
   return planes.map(p=>{
     const filled=p.nums.filter(n=>g[n]>0).length;
     const st=filled===3?'complete':filled>0?'partial':'missing';
-    const cls=st==='complete'?'sp-complete':st==='partial'?'sp-partial':'sp-missing';
+    const cls='status-pill';
     return`<tr>
-      <td style="font-family:'DM Mono',monospace;font-size:.75rem">${p.n}<br><span style="color:var(--text-3);font-size:.65rem">${p.dir}</span></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.75rem">${p.nums.join('·')}</td>
+      <td style="font-family:'Cormorant Garamond',Georgia,serif;font-size:.8rem;letter-spacing:.06em">${p.n}<br><span style="color:var(--text-3);font-size:.65rem">${p.dir}</span></td>
+      <td style="font-family:'Cormorant Garamond',Georgia,serif;font-size:.8rem;letter-spacing:.06em">${p.nums.join('·')}</td>
       <td><span class="status-pill ${cls}">${st}</span></td>
       <td style="font-size:.82rem;line-height:1.6;color:var(--text-2)">${m[p.n][st]}</td>
     </tr>`;
@@ -513,7 +514,8 @@ function buildBazi(d,m,y){
   ];
 
   return`
-<div class="report-pill" style="background:var(--blue-light);border-color:#B8CDE8;color:var(--blue)">☯ BaZi Four Pillars Reading</div>
+<p class="report-eyebrow">BaZi Four Pillars Reading</p>
+<div class="report-rule"></div>
 <div class="report-title">Your BaZi Configuration Chart 四柱命盤</div>
 <div class="report-dob">${MNTHS[m-1]} ${d}, ${y}${hasTime?` · ${tVal}`:''} · ${gender.charAt(0).toUpperCase()+gender.slice(1)}</div>
 
@@ -565,31 +567,31 @@ function buildBazi(d,m,y){
   <div class="two-col">
     <div>
       <p class="sub-heading">Natural Strengths</p>
-      <div class="tag-row">${dmp.strengths.map(s=>`<span class="tag green">${s}</span>`).join('')}</div>
+      <div class="tag-row">${dmp.strengths.map(s=>`<span class="tag">${s}</span>`).join('')}</div>
     </div>
     <div>
       <p class="sub-heading">Core Challenges</p>
-      <div class="tag-row">${dmp.challenges.map(c=>`<span class="tag red">${c}</span>`).join('')}</div>
+      <div class="tag-row">${dmp.challenges.map(c=>`<span class="tag">${c}</span>`).join('')}</div>
     </div>
   </div>
   <p class="sub-heading">How to Strengthen Your Day Master</p>
   <div class="two-col">
     <div>
-      <div class="callout green">
+      <div class="callout">
         <div class="callout-label">Supporting Elements</div>
         <div class="tag-row">${dmp.strengthen.el.map(e=>`<span class="tag">${e}</span>`).join('')}</div>
       </div>
-      <div class="callout red" style="border-left-color:var(--red)">
-        <div class="callout-label" style="color:var(--red)">Elements to Moderate</div>
+      <div class="callout">
+        <div class="callout-label">Elements to Moderate</div>
         <div class="tag-row">${dmp.strengthen.avoid.map(e=>`<span class="tag">${e}</span>`).join('')}</div>
       </div>
     </div>
     <div>
-      <div class="callout blue">
+      <div class="callout">
         <div class="callout-label">Power Colours &amp; Directions</div>
         <p>${dmp.strengthen.colors.join(', ')} · ${dmp.strengthen.dirs.join(', ')}</p>
       </div>
-      <div class="callout amber">
+      <div class="callout">
         <div class="callout-label">Nourishing Foods</div>
         <p>${dmp.strengthen.foods.join(', ')}</p>
       </div>
@@ -710,7 +712,7 @@ function buildPillarCard(p,dm,isDay){
     <div class="p-branch-info">${p.branch.py}<br>${p.branch.an} · ${p.branch.el}</div>
     <div class="${isDay?'p-god-badge self':'p-god-badge'}">${isDay?'☯ Self / Day Master':god}</div>
     ${hidden.length?`<div class="hidden-stems-block">
-      <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--text-3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.1em">Hidden Stems</div>
+      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:.7rem;font-weight:300;color:var(--text-3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.18em">Hidden Stems</div>
       ${hidden.map(hs=>{
         const g=getTGch(dm,hs.ch);
         const tgd=TGD[g]||{};
@@ -738,7 +740,7 @@ function buildElBalance(cnt,dm){
       <div class="callout-label">Most Abundant: ${dom}</div>
       <p>${msgs[dom]?.dom||''}</p>
     </div>
-    <div class="callout blue">
+    <div class="callout">
       <div class="callout-label">Least Present: ${lac}</div>
       <p>${msgs[lac]?.lac||''}</p>
     </div>
@@ -844,7 +846,7 @@ function buildStars(dP,yP){
   ];
   let html='<p class="sub-heading" style="color:var(--green)">✓ Auspicious Stars</p>';
   lucky.filter(s=>s.present).forEach(s=>{
-    html+=`<div class="star-card star-good">
+    html+=`<div class="star-card">
       <div class="star-name">✨ ${s.name}</div>
       <div class="star-ch">${s.ch}</div>
       <div class="star-desc">${s.desc}</div>
@@ -853,7 +855,7 @@ function buildStars(dP,yP){
   });
   html+='<p class="sub-heading" style="color:var(--amber);margin-top:16px">◎ Growth Stars — Areas for Conscious Development</p>';
   challenge.forEach(s=>{
-    html+=`<div class="star-card star-challenge">
+    html+=`<div class="star-card">
       <div class="star-name">⚬ ${s.name}</div>
       <div class="star-ch">${s.ch}</div>
       <div class="star-desc">${s.desc}</div>
@@ -880,7 +882,8 @@ function buildCrossTraditionalSynthesis(lp, dm, lpD, dmp){
   const crossStmt = SYNTH_CROSS[crossKey] || SYNTH_CROSS[dm.el + '-9'] || '';
 
   return`
-<div class="report-pill" style="background:var(--coral-light);border-color:var(--coral-mid);color:var(--coral)">✦ Cross-Traditional Synthesis</div>
+<p class="report-eyebrow">Cross-Traditional Synthesis</p>
+<div class="report-rule"></div>
 <div class="report-title">Where the Two Traditions Intersect</div>
 <div class="report-dob">${dm.ch} ${dm.py} · ${dm.pol} ${dm.el} &nbsp;×&nbsp; Life Path ${lp} · ${lpD.arch}</div>
 
