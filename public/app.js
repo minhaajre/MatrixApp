@@ -45,10 +45,11 @@ function updateDays(){
 // ─────────────────────────────────────────────
 //  GO TO TOP
 // ─────────────────────────────────────────────
+const goTopBtn=document.getElementById('go-top');
 window.addEventListener('scroll',()=>{
-  const btn=document.getElementById('go-top');
-  btn.classList.toggle('on',window.scrollY>400);
+  goTopBtn.classList.toggle('on',window.scrollY>400);
 });
+goTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 // ─────────────────────────────────────────────
 //  UI CONTROLS
