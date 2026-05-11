@@ -19,26 +19,27 @@
     <a href="#sec-bazi" class="nav-link">BaZi</a>
   </div>
 
-  <a class="cciaf-wordmark" href="https://cciaf.minhaaj.com" target="_blank" rel="noopener" aria-label="CCIAF framework">CCIAF</a>
-
-  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-    <!-- Moon icon — shown in light mode -->
-    <svg class="icon-moon" viewBox="0 0 24 24">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-    <!-- Sun icon — shown in dark mode -->
-    <svg class="icon-sun" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="5"/>
-      <line x1="12" y1="1" x2="12" y2="3"/>
-      <line x1="12" y1="21" x2="12" y2="23"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-      <line x1="1" y1="12" x2="3" y2="12"/>
-      <line x1="21" y1="12" x2="23" y2="12"/>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-  </button>
+  <div class="nav-right">
+    <a class="cciaf-wordmark" href="https://cciaf.minhaaj.com" target="_blank" rel="noopener" aria-label="CCIAF framework">CCIAF</a>
+    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <!-- Moon icon — shown in light mode -->
+      <svg class="icon-moon" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <!-- Sun icon — shown in dark mode -->
+      <svg class="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </div>
 </nav>
 
 <div class="page">
@@ -157,7 +158,6 @@
         <button class="btn-filled" onclick="window.print()">Save as PDF</button>
         <button class="btn-outline" onclick="resetAll()">New Reading</button>
       </div>
-      <p class="disclaimer">CCIAF is a structured interpretive framework drawing on multiple intellectual traditions. It is decision-support, not prediction. It is not a substitute for medical, psychiatric, legal, or financial advice. Users in distress should consult qualified professionals.</p>
     </footer>
   </div>
 
@@ -167,6 +167,36 @@
 <button id="go-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Go to top">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="sf-grid">
+    <div class="sf-col">
+      <h4>Matrix</h4>
+      <p class="sf-body">Identity Layer of the CCIAF framework. Structural analysis of natal configuration using BaZi Four Pillars and Numerology. Layer I of five.</p>
+      <p class="sf-sub">Part of <a href="https://cciaf.minhaaj.com" target="_blank" rel="noopener">cciaf.minhaaj.com</a> · <a href="https://www.minhaaj.com" target="_blank" rel="noopener">minhaaj.com</a></p>
+    </div>
+    <div class="sf-col">
+      <h4>CCIAF</h4>
+      <ul>
+        <li><a href="https://cciaf.minhaaj.com" target="_blank" rel="noopener">The Framework</a></li>
+        <li><a href="https://cciaf.minhaaj.com/#framework" target="_blank" rel="noopener">Five Layers</a></li>
+        <li><a href="https://cciaf.minhaaj.com/#engage" target="_blank" rel="noopener">Engagement Tiers</a></li>
+        <li><a href="https://cciaf.minhaaj.com/#contact" target="_blank" rel="noopener">Contact</a></li>
+      </ul>
+    </div>
+    <div class="sf-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="mailto:contact@psyda.org">contact@psyda.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sf-bottom">
+    <span>© 2026 CCIAF &nbsp;·&nbsp; Minhaaj Rehman &nbsp;·&nbsp; All rights reserved</span>
+    <p class="sf-disc">CCIAF is a structured interpretive framework drawing on multiple intellectual traditions. It is decision-support, not prediction. It does not constitute medical, psychiatric, legal, or financial advice. Users in distress should consult qualified professionals.</p>
+  </div>
+</footer>
 
 <script src="data.js"></script>
 <script src="app.js"></script>

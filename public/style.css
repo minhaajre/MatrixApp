@@ -143,6 +143,9 @@ body{
   flex-shrink:0;
 }
 
+.nav-right{
+  display:flex;align-items:center;gap:14px;flex-shrink:0;
+}
 .cciaf-wordmark{
   font-family:var(--font-display);
   font-size:12px;
@@ -151,7 +154,6 @@ body{
   text-transform:uppercase;
   color:var(--coral);
   text-decoration:none;
-  flex-shrink:0;
   transition:color 0.2s;
 }
 .cciaf-wordmark:hover{color:var(--text)}
@@ -662,10 +664,52 @@ body{
 #go-top svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* ══════════════════════════════════════════════
-   FOOTER
+   RESULTS FOOTER (Save as PDF / New Reading)
 ══════════════════════════════════════════════ */
 .page-footer{text-align:center;padding:32px 0;border-top:1px solid var(--border);margin-top:40px;display:none}
 .footer-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+
+/* ══════════════════════════════════════════════
+   SITE FOOTER
+══════════════════════════════════════════════ */
+.site-footer{
+  border-top:1px solid var(--border);
+  padding:48px clamp(20px,5vw,72px) 32px;
+  background:var(--bg-alt);
+  transition:var(--transition),border-color 0.4s;
+}
+.sf-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;
+  gap:36px;align-items:flex-start;
+  max-width:900px;margin:0 auto 28px;
+}
+@media(max-width:640px){.sf-grid{grid-template-columns:1fr;gap:24px;}}
+.sf-col h4{
+  font-family:var(--font-display);
+  font-size:12px;font-weight:300;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-3);
+  margin-bottom:14px;
+}
+.sf-col ul{list-style:none;}
+.sf-col li{padding:3px 0;font-size:14px;}
+.sf-col a{color:var(--text-2);text-decoration:none;transition:color 0.2s;}
+.sf-col a:hover{color:var(--coral);}
+.sf-body{font-size:14px;color:var(--text-3);line-height:1.65;}
+.sf-sub{font-size:13px;color:var(--text-4);font-style:italic;margin-top:10px;}
+.sf-sub a{color:var(--coral);text-decoration:none;transition:color 0.2s;}
+.sf-sub a:hover{color:var(--text);}
+.sf-bottom{
+  border-top:1px solid var(--border);
+  padding-top:18px;
+  max-width:900px;margin:0 auto;
+  display:flex;justify-content:space-between;
+  align-items:flex-start;gap:24px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--text-4);
+  transition:border-color 0.4s,color 0.4s;
+}
+.sf-disc{max-width:520px;line-height:1.6;font-style:italic;font-family:var(--font-body);}
+@media(max-width:600px){.sf-bottom{flex-direction:column;gap:12px;}}
 
 .btn-outline{
   padding:9px 22px;background:transparent;
