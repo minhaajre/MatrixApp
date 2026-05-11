@@ -47,7 +47,7 @@ function updateDays(){
 // ─────────────────────────────────────────────
 window.addEventListener('scroll',()=>{
   const btn=document.getElementById('go-top');
-  btn.style.display=window.scrollY>400?'flex':'none';
+  btn.classList.toggle('on',window.scrollY>400);
 });
 
 // ─────────────────────────────────────────────

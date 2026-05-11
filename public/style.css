@@ -657,17 +657,19 @@ body{
    GO TO TOP
 ══════════════════════════════════════════════ */
 #go-top{
-  position:fixed;bottom:28px;right:24px;
-  width:40px;height:40px;
-  background:var(--coral);color:#fff;
-  border:none;border-radius:var(--radius);
-  cursor:pointer;display:none;align-items:center;justify-content:center;
-  box-shadow:0 4px 16px rgba(139,101,16,.30);
-  transition:all 0.2s;z-index:100;
+  position:fixed;bottom:28px;right:22px;z-index:400;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.10);
+  opacity:0;pointer-events:none;
+  transition:opacity .3s,background .2s,border-color .4s;
 }
-#go-top:hover{background:#7A5510;transform:translateY(-2px)}
-[data-theme="dark"] #go-top:hover{background:#D4AE60}
-#go-top svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#go-top.on{opacity:1;pointer-events:all;}
+#go-top:hover{background:var(--bg-alt);}
+[data-theme="dark"] #go-top:hover{background:var(--bg-alt);}
+#go-top svg{stroke:var(--text-3);transition:stroke .2s;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#go-top:hover svg{stroke:var(--coral);}
 
 /* ══════════════════════════════════════════════
    RESULTS FOOTER (Save as PDF / New Reading)
